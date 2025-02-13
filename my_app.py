@@ -23,16 +23,12 @@ class MainScr(Screen):
         hl = BoxLayout()
         txt = Label(text= 'Выбери экран')
         vl.add_widget(ScrButton(self, direction='down', goal='first', text="1"))
-        '''
         vl.add_widget(ScrButton(self, direction='left', goal='second', text="2"))
         vl.add_widget(ScrButton(self, direction='up', goal='third', text="3"))
         vl.add_widget(ScrButton(self, direction='right', goal='fourth', text="4"))
-        
-        '''
         hl.add_widget(txt)
         hl.add_widget(vl)
         self.add_widget(hl)
-
 
 
 
@@ -45,9 +41,6 @@ class FirstScr(Screen):
         vl.add_widget(btn)
         vl.add_widget(btn_back)
         self.add_widget(vl)
-
-
-
 
 
 
@@ -80,6 +73,7 @@ class SecondScr(Screen):
         btn_false.on_press = self.change_text
     def change_text(self):
         self.txt.text = self.input.text + '? Не сработало ...'  
+
 
 class ThirdScr(Screen):
     def __init__(self, **kwargs):
@@ -122,6 +116,10 @@ class MyApp(App):
         sm = ScreenManager()
         sm.add_widget(MainScr(name='main'))
         sm.add_widget(FirstScr(name='first'))
+        sm.add_widget(SecondScr(name='second'))
+        sm.add_widget(ThirdScr(name='third'))
+        sm.add_widget(FourthScr(name='fourth'))
+
 
         return sm
 
